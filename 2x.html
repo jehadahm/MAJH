@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسئلة ضرب برقمين</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #005f73;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        label {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #005f73;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #003e50;
+            transform: translateY(-2px);
+        }
+
+        .question {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .certificate {
+            background-color: #e0f7fa;
+            border: 2px solid #00838f;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+        }
+
+        .certificate h2 {
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+
+        .certificate p {
+            font-size: 1.2rem;
+            color: #004d40;
+            margin: 10px 0;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .timer {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .start-challenge-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({ publicKey: "J4ABIGk20oLKXX8pP" });
+        })();
+    </script>
+    
+</head>
+<body>
+    <header>
+        <h1>أسئلة ضرب برقمين</h1>
+    </header>
+    <main>
+        <div id="formContainer" class="form-container">
+            <form id="userForm">
+                <label>الاسم:</label>
+                <input type="text" required>
+                <label>الصف:</label>
+                <input type="text" required>
+                <label>الشعبة:</label>
+                <input type="text" required>
+                <button type="submit">التالي</button>
+            </form>
+        </div>
+        <div id="startChallengeContainer" class="start-challenge-container">
+            <button id="startChallenge">ابدأ التحدي</button>
+        </div>
+        <div id="questionsContainer" style="display: none;">
+            <div id="questionsList"></div>
+            <div id="timer" class="timer">الوقت: 0 ثانية</div>
+            <button id="submitAnswers" disabled>إرسال الإجابات</button>
+            <button id="sendEmail" style="display: none;">إرسال النتيجة</button>
+        </div>
+        <div id="resultContainer"></div>
+    </main>
+    <script defer src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة الرياضيات</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #005f73;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        button {
+ 
+            padding: 10px 20px;
+ 
+            background-color: #005f73; /* تعديل لون الزر */
+ 
+            color: white;
+ 
+            border: none;
+ 
+            border-radius: 5px;
+ 
+            font-size: 1rem;
+ 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ 
+            transition: background-color 0.3s;
+}
+        button:disabled {
+            cursor: not-allowed;
+            background-color: #d3d3d3;
+        }
+
+        button:enabled {
+            cursor: pointer;
+            background-color: #005f73;
+        }
+
+        .terms-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .terms-label {
+            margin-left: 10px;
+            color: blue;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #f9f9f9;
+            color: #005f73;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-link {
+            color: blue;
+            text-decoration: none;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .image-container img {
+            max-width: 100px;
+        }
+    </style>
+    <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+    
+        const startButton = document.getElementById('startButton');
+    
+        const termsCheckbox = document.getElementById('termsCheckbox');
+
+    
+        termsCheckbox.addEventListener('change', function () {
+    
+            startButton.disabled = !termsCheckbox.checked;
+    
+        });
+
+    
+        startButton.addEventListener('click', function () {
+    
+            window.location.href = 'start.html'; // رابط الصفحة الجديدة
+    
+        });
+
+    });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>مسابقة الرياضيات</h1>
+        <div class="image-container">
+            <img src="image.jpg" alt="صورة">
+        </div>
+    </header>
+    <main>
+        <h2>المشاركة في المسابقة </h2>
+        <div class="button-container">
+            <button id="startButton" disabled onclick="location.href='start.html'">البدء</button>
+            <div class="terms-container">
+                <input type="checkbox" id="termsCheckbox">
+                <label for="termsCheckbox" class="terms-label">الموافقة على الشروط والأحكام</label>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="terms.html" class="terms-link">الشروط والأحكام</a>
+    </footer>
+</body>
+</html>
